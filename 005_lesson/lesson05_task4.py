@@ -15,4 +15,6 @@ sleep(2)
 button = driver.find_element(By.CSS_SELECTOR, ".fa-2x")
 button.click()
 sleep(2)
+message = driver.find_element(By.ID, "flash").text
+print(message)
 driver.quit()
