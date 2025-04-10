@@ -5,9 +5,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().
+                                                install()))
 
-driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html")
+driver.get(
+    "https://bonigarcia.dev/selenium-webdriver-java/loading-images.html")
 
 wait = WebDriverWait(driver, 40)
 wait.until(
@@ -15,6 +17,5 @@ wait.until(
 )
 
 images = driver.find_elements(By.CSS_SELECTOR, "#award")
-src_value = driver.find_elements(By.CSS_SELECTOR, "#award")[0].get_dom_attribute("src")
-
+src_value = images[0].get_attribute("src")
 print(src_value)

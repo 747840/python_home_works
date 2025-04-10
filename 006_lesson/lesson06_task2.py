@@ -7,11 +7,13 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().
                                                 install()))
-driver.get("http://uitestingplayground.com/ajax")
-driver.find_element(By.CSS_SELECTOR, "#ajaxButton").click()
-content = driver.find_element(By.CSS_SELECTOR, "#content")
-wait = WebDriverWait(driver, 20)
-success_element = wait.until(EC.visibility_of_element_located
-                             ((By.CSS_SELECTOR, "p.bg-success")))
-txt = content.find_element(By.CSS_SELECTOR, "p.bg-success").text
+
+driver.get("http://uitestingplayground.com/textinput")
+element = driver.find_element(By.CSS_SELECTOR, "#newButtonName")
+element.send_keys("SkyPro")
+button = driver.find_element(By.CSS_SELECTOR, "#updatingButton")
+button.click()
+WebDriverWait(driver, 10).until(EC.text_to_be_present_in_element
+                                ((By.ID, "updatingButton"), "SkyPro"))
+txt = button.text
 print(txt)
