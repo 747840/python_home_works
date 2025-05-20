@@ -4,7 +4,8 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-from CalcPage import CalcPage
+from lesson10.CalcPage import CalcPage
+
 
 @allure.severity("blocker")
 @allure.title("Проверка функциональности калькулятора")
@@ -25,7 +26,8 @@ def test_calculator():
         calc_page.click_button_2('8')
     with allure.step("Нажать кнопку = на калькуляторе"):
         calc_page.click_button_2('=')
-    with allure.step("Проверить, что в окне отобразится результат 15 через 45 секунд"):
+    with allure.step("Проверить, что в окне отобразится результат"
+                     " 15 через 45 секунд"):
         calc_page.result(15)
 
     browser.quit()

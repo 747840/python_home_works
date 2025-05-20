@@ -4,21 +4,23 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class CalcPage:
-    """Это класс для страницы калькулятора, который содержит методы для взаимодействия с элементами:
-     полем ввода задержки (локатор #delay), кнопками калькулятора (цифры, операторы, кнопка =),
-     полем вывода результата"""
+    """Это класс для страницы калькулятора, который содержит методы для
+     взаимодействия с элементами: полем ввода задержки (локатор #delay),
+     кнопками калькулятора, полем вывода результата"""
 
     def __init__(self, driver):
         """Эта функция открывает браузер, переходит на главную страницу сайта,
-                 устанавливает глобальное ожидание и разворачивает окно браузера на весь экран"""
+         устанавливает глобальное ожидание и
+         разворачивает окно браузера на весь экран"""
         self._driver = driver
         self._driver.get("https://bonigarcia.dev/selenium"
                          "-webdriver-java/slow-calculator.html")
         self._driver.implicitly_wait(4)
         self._driver.maximize_window()
 
-    def delay_input(self, waits : int) -> int:
-        """Эта функция удаляет данные из поля ввода задержки и заполняет ее новыми данными"""
+    def delay_input(self, waits: int) -> int:
+        """Эта функция удаляет данные из поля ввода задержки и заполняет
+         ее новыми данными"""
         delay_input = self._driver.find_element(By.CSS_SELECTOR, "#delay")
         delay_input.clear()
         delay_input.send_keys(waits)
@@ -47,8 +49,9 @@ class CalcPage:
                                   f"//span[contains(@class, 'btn') and"
                                   f" text()='{button_text}']").click()
 
-    def result(self, res : int) -> int:
-        """Эта функция показывает результат в поле вывода результата после заданной задержки"""
+    def result(self, res: int) -> int:
+        """Эта функция показывает результат в поле вывода
+         результата после заданной задержки"""
         waiter = WebDriverWait(self._driver, 50)
         waiter.until(EC.text_to_be_present_in_element
                      ((By.CLASS_NAME, "screen"), '15'))

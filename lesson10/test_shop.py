@@ -2,10 +2,10 @@ import allure
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
-from AuthorizationPage import AuthorizationPage
-from MainPage import MainPage
-from CartPage import CartPage
-from OrderPage import OrderPage
+from lesson10.AuthorizationPage import AuthorizationPage
+from lesson10.MainPage import MainPage
+from lesson10.CartPage import CartPage
+from lesson10.OrderPage import OrderPage
 
 
 @allure.title("Проверка функциональности интернет-магазина")

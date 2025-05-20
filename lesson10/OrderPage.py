@@ -2,13 +2,14 @@ from selenium.webdriver.common.by import By
 
 
 class OrderPage:
-    """Это класс для страницы оформления заказа, который содержит методы для заполнения
-     формы данными (имя, фамилия, почтовый индекс) и проверки итоговой стоимости товаров"""
+    """Это класс для страницы оформления заказа, который содержит
+     методы для заполнения формы данными (имя, фамилия, почтовый индекс)
+     и проверки итоговой стоимости товаров"""
 
     def __init__(self, browser):
         self._driver = browser
 
-    def form_data(self, first : str, last : str, postal : int) -> None:
+    def form_data(self, first: str, last: str, postal: int) -> None:
         """Эта функция заполняет форму данными (имя, фамилия, почтовый индекс)
          и нажимает на кнопку Continue"""
         self._driver.find_element(By.ID, "first-name").send_keys(first)

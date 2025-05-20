@@ -1,7 +1,9 @@
 from selenium.webdriver.common.by import By
 
+
 class CartPage:
-    """Это класс для страницы корзины, который содержит метод для нажатия кнопки Checkout"""
+    """Это класс для страницы корзины, который содержит метод
+     для нажатия кнопки Checkout"""
 
     def __init__(self, browser):
         self._driver = browser
